@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
 .home {
-    background: url('./logo-furia.jpg') center center / cover no-repeat;
+    background: url('/logo-furia.jpg') center center / cover no-repeat;
     height: 100vh;
     overflow: hidden;
     display: flex;
