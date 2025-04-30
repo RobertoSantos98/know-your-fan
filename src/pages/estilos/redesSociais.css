@@ -1,0 +1,36 @@
+.redes-container {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .redes-container input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .redes-container button {
+    background-color: #b5a356;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .redes-container button:hover {
+    background-color: #8f7f3e;
+  }
+  
+  .redes-container p {
+    color: white;
+    margin-top: 10px;
+  }
+  

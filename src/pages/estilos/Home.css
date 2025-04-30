@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.home {
+    background: url('./logo-furia.jpg') center center / cover no-repeat;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.home-content {
+    text-align: center;
+    background-color: #b5a356;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(181, 163, 86, 0.4);
+    max-width: 600px;
+    width: 100%;
+}
+
+.title {
+    color: #000000;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #333333;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.start-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.start-button:hover {
+    background-color: #8f7f3e;
+    transform: scale(1.05);
+}

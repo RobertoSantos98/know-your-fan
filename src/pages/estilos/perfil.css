@@ -1,0 +1,35 @@
+.perfil-background {
+    background-color: #000000;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .perfil-container {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  h2 {
+    color: #b5a356;
+  }
+  
+  .perfil-info {
+    margin-top: 20px;
+  }
+  
+  .perfil-info p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .perfil-info strong {
+    color: #b5a356;
+  }
+  
