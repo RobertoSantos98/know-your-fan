@@ -29,22 +29,29 @@ function Perfil() {
   }
 
   return (
-    <div className="perfil-container">
-      <h2 className="perfil-title">Perfil do Fã</h2>
-      <div className="perfil-info">
-        <p><strong>Nome:</strong> {userData.nome}</p>
-        <p><strong>Idade:</strong> {userData.idade}</p>
-        <p><strong>Gênero:</strong> {userData.genero}</p>
-        <p><strong>Redes Sociais:</strong> {userData.redes}</p>
-        <p><strong>Time Favorito:</strong> {userData.time}</p>
-        <p><strong>Jogador Favorito:</strong> {userData.jogador}</p>
-        <p><strong>Gêneros de Jogos Favoritos:</strong> {userData.generos.join(', ')}</p>
-        <p><strong>Email:</strong> {userData.email}</p>
+    <div className="perfil-page">
+      <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
+        <img src="/logo-furia.jpg" alt="" style={{ width: '50%' }} />
       </div>
+      <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
+        <div className="perfil-container">
+          <h2 className="perfil-title">Perfil do Fã</h2>
+          <div className="perfil-info">
+            <p><strong>Nome:</strong> {userData.nome}</p>
+            <p><strong>Idade:</strong> {userData.idade}</p>
+            <p><strong>Gênero:</strong> {userData.genero}</p>
+            <p><strong>Redes Sociais:</strong> {userData.redes}</p>
+            <p><strong>Time Favorito:</strong> {userData.time}</p>
+            <p><strong>Jogador Favorito:</strong> {userData.jogador}</p>
+            <p><strong>Gêneros de Jogos Favoritos:</strong> {userData.generos.join(', ')}</p>
+            <p><strong>Email:</strong> {userData.email}</p>
+          </div>
 
-      <div className="perfil-nivel">
-        <h3 className="nivel-title">Nível de Fã</h3>
-        <p>{getFanLevel(userData)}</p>
+          <div className="perfil-nivel">
+            <h3 className="nivel-title">Nível de Fã</h3>
+            <p>{getFanLevel(userData)}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
