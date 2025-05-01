@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'; // Importando o hook para navega
 import './estilos/cadastro.css';
 
 function Cadastro() {
+  const [documento, setDocumento] = useState(null);
+  const [mensagemValidacao, setMensagemValidacao] = useState('');
+
   const [formData, setFormData] = useState({
     nome: '',
     idade: '',
@@ -31,12 +34,41 @@ function Cadastro() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Salvar os dados no localStorage
-    localStorage.setItem('perfil', JSON.stringify(formData));
+    if (!formData.redes.includes('@')) {
+      alert('Por favor, inclua ao menos um @ nas redes sociais (simulação de verificação)');
+      return;
+    }
 
-    // Redirecionar para a página de perfil
+    const dadosComDocumento = { ...formData, documento: documento ? documento.name : null };
+    localStorage.setItem('perfil', JSON.stringify(dadosComDocumento));
+
     navigate('/perfil');
   };
+
+  const handleDocumentoUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setDocumento(file);
+
+      setMensagemValidacao("⏳ Validando documento...");
+      setTimeout(() => {
+        if (tipoAceito.includes(file.type) && file.size < 2 * 1024 * 1024) {
+          setMensagemValidacao("✅ Documento válido! (Simulado)");
+        } else {
+          setMensagemValidacao("❌ Documento inválido! Envie um PDF ou imagem de até 2MB.");
+        }
+      }, 1500); // 1.5 segundos
+
+      const tipoAceito = ['application/pdf', 'image/jpeg', 'image/png'];
+      if (tipoAceito.includes(file.type) && file.size < 2 * 1024 * 1024) {
+        setMensagemValidacao("✅ Documento válido! (Simulado)");
+      } else {
+        setMensagemValidacao("❌ Documento inválido! Envie um PDF ou imagem de até 2MB.");
+      }
+    }
+  };
+
 
   return (
     <div className='cadastro-background'>
@@ -161,6 +193,16 @@ function Cadastro() {
               required
             />
           </label>
+
+          <label htmlFor="documento">Upload de Documento:</label>
+          <input
+            type="file"
+            id="documento"
+            accept=".pdf,.jpg,.jpeg,.png"
+            onChange={(e) => handleDocumentoUpload(e)}
+          />
+          <p>{mensagemValidacao}</p>
+          <p>O arquivo deve ser no formato PDF, JPG, JPEG ou PNG e ter no máximo 2MB.</p>
 
           <button type="submit">Cadastrar</button>
         </form>
