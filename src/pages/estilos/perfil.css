@@ -1,9 +1,10 @@
-/* Estilos de carregamento */
+
 .perfil-page{
   background-color: #000;
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -27,21 +28,20 @@
     color: #fff;
   }
   
-  /* Mensagem de erro */
   .error-message {
     text-align: center;
-    color: #F26A50; /* Coral para a mensagem de erro */
+    color: #F26A50; 
     font-size: 1.2rem;
     margin-top: 50px;
-    background-color: #3A6D7F; /* Azul escuro para o fundo */
+    background-color: #3A6D7F; 
     padding: 15px;
     border-radius: 10px;
   }
   
-  /* Estilos do perfil */
+
   .perfil-container {
-    background-color: #1C1C1C; /* Fundo preto bem escuro (de acordo com o estilo anterior) */
-    color: #FFFFFF; /* Texto branco para bom contraste */
+    background-color: #1C1C1C; 
+    color: #FFFFFF; 
     max-width: 800px;
     width: 80%;
     margin: 30px auto;
@@ -53,7 +53,7 @@
   .perfil-title {
     text-align: center;
     font-size: 2rem;
-    color: #F26A50; /* Coral para o título, mais próximo do estilo anterior */
+    color: #b5a356;
     margin-bottom: 20px;
   }
   
@@ -87,15 +87,42 @@
   }
   
   /* Níveis de fã */
-  .fan-level.dedicated {
-    color: #F26A50; /* Fã dedicado em coral */
+  .fan-level {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #000;
   }
   
-  .fan-level.casual {
-    color: #8F7F3E; /* Fã casual em dourado mais escuro */
+  .perfil-novato {
+    background-color: #F26A50;
   }
   
-  .fan-level.newbie {
-    color: #E9F2F5; /* Novato em azul muito claro */
+  .perfil-casual {
+    background-color: #4caf50;
+    color: #fff;
   }
+  
+  .perfil-super {
+    background-color: #FFD700;
+    color: #000;
+  }
+  
+  
+
+  .btn-redes {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #b5a356;
+    color: #000;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  
+  .btn-redes:hover {
+    background-color: #8f7f3e;
+  }
+  
   

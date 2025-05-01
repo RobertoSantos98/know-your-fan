@@ -40,6 +40,7 @@ function Cadastro() {
     }
 
     const dadosComDocumento = { ...formData, documento: documento ? documento.name : null };
+    localStorage.setItem('documento', documento.name);
     localStorage.setItem('perfil', JSON.stringify(dadosComDocumento));
 
     navigate('/perfil');
@@ -108,7 +109,7 @@ function Cadastro() {
               <option value="masculino">Masculino</option>
               <option value="feminino">Feminino</option>
               <option value="outro">Outro</option>
-              <option value="outro">Não me sinto confortável para responder</option>
+              <option value="nao-respondeu">Não me sinto confortável para responder</option>
             </select>
           </label>
 
