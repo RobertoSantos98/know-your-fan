@@ -102,7 +102,7 @@ function Perfil() {
   return (
     <div className="perfil-page">
       <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
-        <img src="/logo-furia.jpg" alt="Logo FURIA" style={{ width: '50%' }} />
+        <img src="./logo-furia.jpg" alt="Logo FURIA" style={{ width: '50%' }} />
       </div>
       <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
         <div className="perfil-container">
