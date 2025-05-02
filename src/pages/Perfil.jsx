@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './estilos/perfil.css';
+import logo from '../assets/logo-furia.jpg'
+import Icon from '@mdi/react';
+import { mdiUpload  } from '@mdi/js';
 
 function Perfil() {
   const [userData, setUserData] = useState(null);
@@ -27,7 +30,7 @@ function Perfil() {
 
   const calcularProgresso = () => {
     let progresso = 0;
-  
+
     const dadosCompletos = userData?.nome && userData?.email && Array.isArray(userData?.generos) && userData.generos.length > 0;
     if (dadosCompletos) {
       progresso += 25;
@@ -35,7 +38,7 @@ function Perfil() {
     } else {
       console.log('✗ Dados principais incompletos');
     }
-  
+
     const redesConectadas = Object.values(conexoes).some((v) => v === true || v === 'true');
     if (redesConectadas) {
       progresso += 25;
@@ -43,14 +46,14 @@ function Perfil() {
     } else {
       console.log('✗ Nenhuma rede social conectada');
     }
-  
+
     if (documento && documento.trim() !== '') {
       progresso += 25;
       console.log('✓ Documento enviado');
     } else {
       console.log('✗ Documento não encontrado');
     }
-  
+
     const preferenciasValidas = (preferencias !== '');
     if (preferenciasValidas) {
       progresso += 25;
@@ -58,10 +61,10 @@ function Perfil() {
     } else {
       console.log('✗ Preferências ausentes');
     }
-  
+
     return progresso;
   };
-  
+
 
 
   const progresso = calcularProgresso();
@@ -86,10 +89,26 @@ function Perfil() {
     return <span className="fan-level fan-novato">Novato</span>;
   };
 
+  const exportarDados = () => {
+    const dadosExportar = {
+      perfil: userData,
+      conexoes,
+      preferencias,
+      documento
+    };
+
+    const blob = new Blob([JSON.stringify(dadosExportar, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'dados_perfil.json';
+    link.click();
+  }
+
   if (loading) {
     return (
       <div className="loading-container">
-        <img src="./logo-furia.jpg" alt="Logo FURIA" className="loading-logo" />
+        <img src={logo} alt="Logo FURIA" className="loading-logo" />
         <h2 className="loading-text">Carregando dados do perfil...</h2>
       </div>
     );
@@ -101,11 +120,17 @@ function Perfil() {
 
   return (
     <div className="perfil-page">
-      <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
-        <img src="./logo-furia.jpg" alt="Logo FURIA" style={{ width: '50%' }} />
+      <button className='btn-exportar' onClick={exportarDados}>
+        <Icon path={mdiUpload } size={10} />
+      </button>
+      <div style={{ width: '50%', justifyContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <img src={logo} alt="" style={{ width: '50%' }} />
+
       </div>
+
       <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
         <div className="perfil-container">
+
           <h2 className="perfil-title">Perfil do Fã</h2>
           <div className="perfil-info">
             <p><strong>Nome:</strong> {userData.nome}</p>
@@ -121,7 +146,7 @@ function Perfil() {
           <div className="progresso-container">
             <label>Progresso para virar Super Fã:</label>
             <div className="barra-externa">
-              <div className="barra-interna" style={{ width: `${progresso}%`, backgroundColor: '#4169E1', borderRadius: '5px', paddingLeft: '8px', marginBlock: '5px'}}>
+              <div className="barra-interna" style={{ width: `${progresso}%`, backgroundColor: '#4169E1', borderRadius: '5px', paddingLeft: '8px', marginBlock: '5px' }}>
                 {progresso}%
               </div>
             </div>

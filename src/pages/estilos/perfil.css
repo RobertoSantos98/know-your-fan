@@ -1,3 +1,17 @@
+.btn-exportar{
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  margin: 0;
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+  background-color: #6e6e6e;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .perfil-page{
   background-color: #000;
@@ -108,9 +122,6 @@
     background-color: #FFD700;
     color: #000;
   }
-  
-  
-
   .btn-redes {
     display: inline-block;
     margin-top: 1rem;
